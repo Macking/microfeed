@@ -286,6 +286,13 @@ export default class EditItemApp extends React.Component {
                   />
                   <div className="text-muted-color text-xs" dangerouslySetInnerHTML={{__html: ITEM_STATUSES_DICT[status].description}} />
                 </div>
+                <div className="grid grid-cols-1 gap-2 mt-4">
+                    <AdminInput 
+                    labelComponent={<ExplainText bundle={CONTROLS_TEXTS_DICT[ITEM_CONTROLS.TAG]}/>}
+                    value={item.tag}
+                    onChange={(e) => this.onUpdateItemMeta({'tag': e.target.value})}
+                    />
+                </div>
               </div>
             </div>
             <div className="mt-8 pt-8 border-t">

@@ -15,6 +15,7 @@ export const ITEM_CONTROLS = {
   ITUNES_EPISODE: 'item_itunes_episode',
   ITUNES_BLOCK: 'item_itunes_block',
   STATUS: 'item_status',
+  TAG: 'item_tag',
 };
 
 export const CONTROLS_TEXTS_DICT = {
@@ -152,5 +153,12 @@ export const CONTROLS_TEXTS_DICT = {
       `${Object.keys(ITEM_STATUSES_DICT).map((k) => (
         `<li>${ITEM_STATUSES_DICT[k].name}: ${ITEM_STATUSES_DICT[k].description}</li>`)).join('')}` +
       "</ul>",
+  },
+  [ITEM_CONTROLS.TAG]: {
+    linkName: 'Item tag',
+    modalTitle: 'Item / tag',
+    text: "An item's tag.",
+    rss: '<channel><item><tag>python</tag></item></channel>',
+    json: '{ "items": [{"_microfeed": {"tag": "python"}}] }',
   },
 };
