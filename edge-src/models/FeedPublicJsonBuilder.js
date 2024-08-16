@@ -204,6 +204,7 @@ export default class FeedPublicJsonBuilder {
       json_url: item.jsonUrl,
       rss_url: item.rssUrl,
       guid: item.guid,
+      tag: item.tag,
       status: ITEM_STATUSES_DICT[item.status] ? ITEM_STATUSES_DICT[item.status].name : 'published',
     };
 

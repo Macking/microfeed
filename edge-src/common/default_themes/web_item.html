@@ -14,6 +14,13 @@
       &middot;
       <a href="{{items.0._microfeed.rss_url}}" target="_blank">rss</a>
     </div>
+    <div>
+      {{#items.0._microfeed.tag}}
+      <div class="text-mid mb-4">
+        {{items.0._microfeed.tag}}
+      </div>
+      {{#items.0._microfeed.tag}}
+    </div>
 
     <div>
       {{#items.0._microfeed.is_audio}}
