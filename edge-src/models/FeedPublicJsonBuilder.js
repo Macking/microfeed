@@ -250,6 +250,9 @@ export default class FeedPublicJsonBuilder {
     if (item.language) {
       newItem['language'] = item.language;
     }
+    if (item.tag) {
+      newItem['tag'] = item.tag;
+    }
 
     if (item['itunes:title']) {
       _microfeed['itunes:title'] = item['itunes:title'];
