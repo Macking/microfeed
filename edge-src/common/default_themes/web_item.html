@@ -17,7 +17,10 @@
     <div>
       {{#items.0.tag}}
       <div class="mb-4 text-mid">
-        {{items.0.tag}}
+        <!-- {{items.0.tag}} -->
+         {items.0.tag.map((t) => (
+          <div>#{t}</div>
+         ))}
       </div>
       {{/items.0.tag}}
     </div>

@@ -50,6 +50,7 @@ export default class EditItemApp extends React.Component {
     this.onDelete = this.onDelete.bind(this);
     this.onUpdateFeed = this.onUpdateFeed.bind(this);
     this.onUpdateItemMeta = this.onUpdateItemMeta.bind(this);
+    this.onUpdateItemTag = this.onUpdateItemTag.bind(this);
     this.onUpdateItemToFeed = this.onUpdateItemToFeed.bind(this);
 
     const $feedContent = document.getElementById('feed-content');
@@ -108,6 +109,11 @@ export default class EditItemApp extends React.Component {
         ...props,
       },
     }), () => onSuccess())
+  }
+
+  onUpdateItemTag(tagArray) {
+    const tagMeta = {'tag': tagArray};
+    this.onUpdateItemMeta(tagMeta);
   }
 
   onUpdateItemMeta(attrDict, extraDict) {
@@ -184,6 +190,7 @@ export default class EditItemApp extends React.Component {
     const submitting = submitStatus === SUBMIT_STATUS__START;
     const {mediaFile} = item;
     const status = item.status || STATUSES.PUBLISHED;
+    const itemTag = item.tag || [];
 
     const webGlobalSettings = feed.settings.webGlobalSettings || {};
     const publicBucketUrl = webGlobalSettings.publicBucketUrl || '';
@@ -290,8 +297,10 @@ export default class EditItemApp extends React.Component {
                 <div className="grid grid-cols-1 gap-2 mt-4">
                     <AdminTagInput 
                     labelComponent={<ExplainText bundle={CONTROLS_TEXTS_DICT[ITEM_CONTROLS.TAG]}/>}
-                    value={item.tag}
-                    onChange={(e) => this.onUpdateItemMeta({'tag': [...e.map((o)=>{ o.value })]})}
+                    value={itemTag}
+                    onChange={(itemTag) => { 
+                      this.onUpdateItemTag(itemTag) }
+                     }
                     />
                 </div>
               </div>
