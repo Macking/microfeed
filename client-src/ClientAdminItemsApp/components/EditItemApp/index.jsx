@@ -291,7 +291,7 @@ export default class EditItemApp extends React.Component {
                     <AdminTagInput 
                     labelComponent={<ExplainText bundle={CONTROLS_TEXTS_DICT[ITEM_CONTROLS.TAG]}/>}
                     value={item.tag}
-                    onChange={(e) => this.onUpdateItemMeta({'tag': e.target.value})}
+                    onChange={(e) => this.onUpdateItemMeta({'tag': [...e.map((o)=>{ o.value })]})}
                     />
                 </div>
               </div>
