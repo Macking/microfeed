@@ -2,6 +2,7 @@ import React from 'react';
 import { TrashIcon } from '@heroicons/react/24/outline';
 import AdminNavApp from '../../../components/AdminNavApp';
 import AdminInput from "../../../components/AdminInput";
+import AdminTagInput from '../../../components/AdminTagInput';
 import Requests from "../../../common/requests";
 import {randomShortUUID, ADMIN_URLS, PUBLIC_URLS} from '../../../../common-src/StringUtils';
 import AdminImageUploaderApp from "../../../components/AdminImageUploaderApp";
@@ -287,7 +288,7 @@ export default class EditItemApp extends React.Component {
                   <div className="text-muted-color text-xs" dangerouslySetInnerHTML={{__html: ITEM_STATUSES_DICT[status].description}} />
                 </div>
                 <div className="grid grid-cols-1 gap-2 mt-4">
-                    <AdminInput 
+                    <AdminTagInput 
                     labelComponent={<ExplainText bundle={CONTROLS_TEXTS_DICT[ITEM_CONTROLS.TAG]}/>}
                     value={item.tag}
                     onChange={(e) => this.onUpdateItemMeta({'tag': e.target.value})}
