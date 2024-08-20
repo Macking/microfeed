@@ -14,13 +14,10 @@
       &middot;
       <a href="{{items.0._microfeed.rss_url}}" target="_blank">rss</a>
     </div>
-    <div>
+    <div class="flex">
       {{#items.0.tag}}
       <div class="mb-4 text-mid">
-        <!-- {{items.0.tag}} -->
-         {items.0.tag.map((t) => (
-          <div>#{t}</div>
-         ))}
+        #{{.}}&emsp;
       </div>
       {{/items.0.tag}}
     </div>
